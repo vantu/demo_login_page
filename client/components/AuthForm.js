@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 class AuthForm extends Component {
     constructor(props) {
@@ -14,12 +14,11 @@ class AuthForm extends Component {
     render() {
         return (
             <div className="row">
-
                 <form onSubmit={this.onSubmit.bind(this)} className="col s6">
                     <div className="input-field">
                         <input
                             placeholder="Email"
-                            type="text" value={this.state.email}
+                             value={this.state.email}
                             onChange={e => this.setState({email: e.target.value})}
                         />
                     </div>
@@ -29,7 +28,10 @@ class AuthForm extends Component {
                             type="password" value={this.state.password}
                             onChange={e => this.setState({password: e.target.value})}/>
                     </div>
-                    <div className="btn"> Submit</div>
+                    <div className="errors">
+                    {this.props.errors.map(error=><div key={error}>{error}</div>)}
+                    </div>
+                    <button className="btn"> Submit</button>
                 </form>
             </div>
 
